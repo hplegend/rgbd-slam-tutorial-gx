@@ -11,7 +11,8 @@
 #include <fstream>
 #include <sstream>
 using namespace std;
-
+#include <Eigen/Core>
+#include <Eigen/Geometry> // For Eigen::Affine3d
 #include "slamBase.h"
 
 #include <pcl/filters/voxel_grid.h>
@@ -45,7 +46,7 @@ vector<string> listPathFiles(string path);
 FRAME readFrame( int index, ParameterReader& pd );
 
 FRAME readMyFrame(string rgb, string depth, int frameId, ParameterReader &pd) ;
-
+void drawCamera(pcl::visualization::PCLVisualizer::Ptr viewer, const  Eigen::Matrix4d& pose, int id);
 // 估计一个运动的大小
 double normofTransform( cv::Mat rvec, cv::Mat tvec );
 
@@ -102,15 +103,19 @@ int main( int argc, char** argv )
     v->setEstimate( Eigen::Isometry3d::Identity() ); //估计为单位矩阵
     v->setFixed( true ); //第一个顶点固定，不用优化
     globalOptimizer.addVertex( v );
-    pcl::visualization::CloudViewer viewer("viewer");
+  //  pcl::visualization::CloudViewer viewer("viewer");
+
     // 是否显示点云
     bool visualize = pd.getData("visualize_pointcloud")==string("yes");
 
+    currFrame.rvec = cv::Mat::zeros(3, 3, CV_64F);
+    currFrame.tvec = cv::Mat::zeros(1, 3, CV_64F);
     keyframes.push_back( currFrame );
+
     
     double keyframe_threshold = atof( pd.getData("keyframe_threshold").c_str() );
     bool check_loop_closure = pd.getData("check_loop_closure")==string("yes");
-    
+    int lostFrameCnt = 0;
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
     {
         cout<<"Reading files "<<currIndex<<endl;
@@ -125,6 +130,62 @@ int main( int argc, char** argv )
         case NOT_MATCHED:
             //没匹配上，直接跳过
             cout<<RED"Not enough inliers."<<endl;
+            lostFrameCnt = lostFrameCnt + 1;
+            if(lostFrameCnt >=1) {// 连续两帧没有跟上
+                // 计算方向向量，计算速度，插入一帧，或者从新开始一帧
+                // 目的是保证地图不断。
+                pcl::visualization::PCLVisualizer::Ptr camViewer(new pcl::visualization::PCLVisualizer("SLAM Camera Visualization"));
+                camViewer->setBackgroundColor(0, 0, 0);
+                camViewer->addCoordinateSystem(1.0); // 参数为坐标轴长度
+
+                camViewer->removeAllPointClouds();
+                camViewer->removeAllShapes();
+
+                Eigen::Matrix4d matrix4D = Eigen::Matrix4d::Identity();
+                pcl::PointXYZ last_O_pos;
+                for (size_t i = 0; i < keyframes.size(); ++i) {
+                    pcl::PointXYZ O_pose;
+                    Eigen::Isometry3d T = cvMat2Eigen( keyframes[i].rvec, keyframes[i].tvec );
+                    //每帧位姿的原点坐标只由变换矩阵中的平移向量得到
+                    O_pose.x = T.translation()[0];
+                    O_pose.y = T.translation()[1];
+                    O_pose.z = T.translation()[2];
+                    if (i > 0)
+                        camViewer->addLine(last_O_pos, O_pose, 255, 255, 255, "trac_" + std::to_string(i));
+
+                    pcl::PointXYZ X;
+                    Eigen::Vector3d Xw =T * (0.1 * Eigen::Vector3d(1, 0, 0));
+                    X.x = Xw[0];
+                    X.y = Xw[1];
+                    X.z = Xw[2];
+                    camViewer->addLine(O_pose, X, 255, 0, 0, "X_" + std::to_string(i));
+
+                    pcl::PointXYZ Y;
+                    Eigen::Vector3d Yw =T * (0.1 * Eigen::Vector3d(0, 1, 0));
+                    Y.x = Yw[0];
+                    Y.y = Yw[1];
+                    Y.z = Yw[2];
+                    camViewer->addLine(O_pose, Y, 0, 255, 0, "Y_" + std::to_string(i));
+
+                    pcl::PointXYZ Z;
+                    Eigen::Vector3d Zw =T * (0.1 * Eigen::Vector3d(0, 0, 1));
+                    Z.x = Zw[0];
+                    Z.y = Zw[1];
+                    Z.z = Zw[2];
+                    camViewer->addLine(O_pose, Z, 0, 0, 255, "Z_" + std::to_string(i));
+
+                    last_O_pos = O_pose;
+
+                //    drawCamera(camViewer, matrix4D, i); // 绘制相机
+                }
+
+                while (!camViewer->wasStopped()) {
+                    camViewer->spinOnce(100);
+                }
+
+            }
+
+
             break;
         case TOO_FAR_AWAY:
             // 太近了，也直接跳
@@ -133,9 +194,11 @@ int main( int argc, char** argv )
         case TOO_CLOSE:
             // 太远了，可能出错了
             cout<<RESET"Too close, not a keyframe"<<endl;
+         //   keyframes.push_back( currFrame );
             break;
         case KEYFRAME:
             cout<<GREEN"This is a new keyframe"<<endl;
+            lostFrameCnt = 0;
             // 不远不近，刚好
             /**
              * This is important!!
@@ -152,10 +215,10 @@ int main( int argc, char** argv )
             keyframes.push_back( currFrame );
 
 
-                cloud = joinPointCloud( cloud, currFrame, T, camera );
-
-                if ( visualize == true )
-                    viewer.showCloud( cloud );
+//                cloud = joinPointCloud( cloud, currFrame, T, camera );
+//
+//                if ( visualize == true )
+//                    viewer.showCloud( cloud );
 
             break;
         default:
@@ -192,10 +255,10 @@ int main( int argc, char** argv )
         Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
         PointCloud::Ptr newCloud = image2PointCloud( keyframes[i].rgb, keyframes[i].depth, camera ); //转成点云
         // 以下是滤波
-        voxel.setInputCloud( newCloud );
-        voxel.filter( *tmp );
-        pass.setInputCloud( tmp );
-        pass.filter( *newCloud );
+//        voxel.setInputCloud( newCloud );
+//        voxel.filter( *tmp );
+//        pass.setInputCloud( tmp );
+//        pass.filter( *newCloud );
         // 把点云变换后加入全局地图中
         pcl::transformPointCloud( *newCloud, *tmp, pose.matrix() );
         *output += *tmp;
@@ -203,10 +266,67 @@ int main( int argc, char** argv )
         newCloud->clear();
     }
 
-    voxel.setInputCloud( output );
-    voxel.filter( *tmp );
+
+
+//    // 计算方向向量，计算速度，插入一帧，或者从新开始一帧
+//    // 目的是保证地图不断。
+//    pcl::visualization::PCLVisualizer::Ptr camViewer(
+//            new pcl::visualization::PCLVisualizer("SLAM Camera Visualization"));
+//    camViewer->setBackgroundColor(0, 0, 0);
+//    camViewer->addCoordinateSystem(1.0); // 参数为坐标轴长度
+//
+//    camViewer->removeAllPointClouds();
+//    camViewer->removeAllShapes();
+//
+//    Eigen::Matrix4d matrix4D = Eigen::Matrix4d::Identity();
+//    pcl::PointXYZ last_O_pos;
+//    for (size_t i = 0; i < keyframes.size(); ++i) {
+//        // 从g2o里取出一帧
+//        g2o::VertexSE3* vertex = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[i].frameID ));
+//        Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
+//
+//        pcl::PointXYZ O_pose;
+//        //每帧位姿的原点坐标只由变换矩阵中的平移向量得到
+//        O_pose.x = pose.translation()[0];
+//        O_pose.y = pose.translation()[1];
+//        O_pose.z = pose.translation()[2];
+//        if (i > 0)
+//            camViewer->addLine(last_O_pos, O_pose, 255, 255, 255, "trac_" + std::to_string(i));
+//
+//        pcl::PointXYZ X;
+//        Eigen::Vector3d Xw = pose * (0.1 * Eigen::Vector3d(1, 0, 0));
+//        X.x = Xw[0];
+//        X.y = Xw[1];
+//        X.z = Xw[2];
+//        camViewer->addLine(O_pose, X, 255, 0, 0, "X_" + std::to_string(i));
+//
+//        pcl::PointXYZ Y;
+//        Eigen::Vector3d Yw = pose * (0.1 * Eigen::Vector3d(0, 1, 0));
+//        Y.x = Yw[0];
+//        Y.y = Yw[1];
+//        Y.z = Yw[2];
+//        camViewer->addLine(O_pose, Y, 0, 255, 0, "Y_" + std::to_string(i));
+//
+//        pcl::PointXYZ Z;
+//        Eigen::Vector3d Zw = pose * (0.1 * Eigen::Vector3d(0, 0, 1));
+//        Z.x = Zw[0];
+//        Z.y = Zw[1];
+//        Z.z = Zw[2];
+//        camViewer->addLine(O_pose, Z, 0, 0, 255, "Z_" + std::to_string(i));
+//
+//        last_O_pos = O_pose;
+//
+//    }
+//
+//    while (!camViewer->wasStopped()) {
+//        camViewer->spinOnce(100);
+//    }
+
+
+//    voxel.setInputCloud( output );
+//    voxel.filter( *tmp );
     //存储
-    pcl::io::savePCDFile( "./result.pcd", *tmp );
+    pcl::io::savePCDFile( "../result.pcd", *tmp );
     
     cout<<"Final map is saved."<<endl;
     return 0;
@@ -394,4 +514,21 @@ vector<string> listPathFiles(string path) {
     }
     std::sort(ret.begin(), ret.end());
     return ret;
+}
+
+
+// 绘制相机模型（用箭头表示）
+void drawCamera(pcl::visualization::PCLVisualizer::Ptr viewer,  const Eigen::Matrix4d & pose, int id) {
+    Eigen::Vector3d origin(pose(0, 3), pose(1, 3), pose(2, 3)); // 相机中心
+    Eigen::Vector3d forward(pose(0, 2), pose(1, 2), pose(2, 2)); // 相机方向
+
+    // 生成箭头表示相机方向
+    pcl::PointXYZ start(origin[0], origin[1], origin[2]);
+    pcl::PointXYZ end(origin[0] + 0.1 * forward[0],
+                      origin[1] + 0.1 * forward[1],
+                      origin[2] + 0.1 * forward[2]);
+
+    std::string arrow_name = "camera_arrow_" + std::to_string(id);
+    viewer->addSphere(start,0.05,arrow_name);
+   // viewer->addArrow(end, start, 1.0, 0.0, 0.0, false, arrow_name); // 红色箭头
 }

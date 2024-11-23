@@ -8,21 +8,21 @@ descriptor=ORB
 good_match_threshold=10
 
 # camera
-camera.cx=325.5;
-camera.cy=253.5;
-camera.fx=518.0;
-camera.fy=519.0;
+camera.cx=949.243;
+camera.cy=560.952;
+camera.fx=1121.21;
+camera.fy=1120.25;
 camera.scale=1000.0;
 
-# part 5 
+# part 5
 # 数据相关
 # 起始与终止索引
-start_index=1
-end_index=1100
+start_index=42
+end_index=200
 # 数据所在目录
-rgb_dir=/home/hplegend/Downloads/CL8R24100G7/rgb/
+rgb_dir=/home/hplegend/Downloads/CL8R241002P/rgb/
 rgb_extension=.png
-depth_dir=/home/hplegend/Downloads/CL8R24100G7/depth/
+depth_dir=/home/hplegend/Downloads/CL8R241002P/depth/
 depth_extension=.png
 # 点云分辨率
 voxel_grid=0.01

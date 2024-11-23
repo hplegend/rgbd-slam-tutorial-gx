@@ -707,6 +707,10 @@ fstream
 -
 sstream
 -
+Eigen/Core
+-
+Eigen/Geometry
+-
 slamBase.h
 /home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/slamBase.h
 pcl/filters/voxel_grid.h
