@@ -49,6 +49,8 @@ struct FRAME
     cv::Mat rgb, depth; //该帧对应的彩色图与深度图
     cv::Mat desp;       //特征描述子
     vector<cv::KeyPoint> kp; //关键点
+
+    cv::Mat rvec, tvec; // 当前计算的旋转平移
 };
 
 // PnP 结果
@@ -83,7 +85,7 @@ PointCloud::Ptr joinPointCloud( PointCloud::Ptr original, FRAME& newFrame, Eigen
 class ParameterReader
 {
 public:
-    ParameterReader( string filename="./parameters.txt" )
+    ParameterReader( string filename="../parameters.txt" )
     {
         ifstream fin( filename.c_str() );
         if (!fin)

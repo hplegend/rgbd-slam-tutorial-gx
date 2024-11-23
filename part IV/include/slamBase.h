@@ -67,7 +67,7 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
 class ParameterReader
 {
 public:
-    ParameterReader( string filename="./parameters.txt" )
+    ParameterReader( string filename="../parameters.txt" )
     {
         ifstream fin( filename.c_str() );
         if (!fin)

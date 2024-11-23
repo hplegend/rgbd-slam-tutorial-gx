@@ -27,13 +27,25 @@ using namespace std;
 #include <g2o/core/robust_kernel.h>
 #include <g2o/core/robust_kernel_impl.h>
 #include <g2o/core/optimization_algorithm_levenberg.h>
+#include <dirent.h>
+#include <sys/types.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <vector>
+#include <algorithm> // std::sort
 
 // 把g2o的定义放到前面
 typedef g2o::BlockSolver_6_3 SlamBlockSolver; 
-typedef g2o::LinearSolverEigen< SlamBlockSolver::PoseMatrixType > SlamLinearSolver; 
+typedef g2o::LinearSolverEigen< SlamBlockSolver::PoseMatrixType > SlamLinearSolver;
+
+vector<string> listPathFiles(string path);
 
 // 给定index，读取一帧数据
 FRAME readFrame( int index, ParameterReader& pd );
+
+FRAME readMyFrame(string rgb, string depth, int frameId, ParameterReader &pd) ;
+
 // 估计一个运动的大小
 double normofTransform( cv::Mat rvec, cv::Mat tvec );
 
@@ -52,13 +64,17 @@ int main( int argc, char** argv )
     ParameterReader pd;
     int startIndex  =   atoi( pd.getData( "start_index" ).c_str() );
     int endIndex    =   atoi( pd.getData( "end_index"   ).c_str() );
+    string rgbDir = pd.getData("rgb_dir");
+    string depthDir = pd.getData("depth_dir");
+    vector<string> depthFilesPath = listPathFiles(depthDir);
+    vector<string> rgbFilesPath = listPathFiles(rgbDir);
 
     // 所有的关键帧都放在了这里
     vector< FRAME > keyframes; 
     // initialize
     cout<<"Initializing ..."<<endl;
     int currIndex = startIndex; // 当前索引为currIndex
-    FRAME currFrame = readFrame( currIndex, pd ); // 上一帧数据
+    FRAME currFrame = readMyFrame( rgbFilesPath[currIndex],depthFilesPath[currIndex], currIndex,pd ); // 上一帧数据
 
     string detector = pd.getData( "detector" );
     string descriptor = pd.getData( "descriptor" );
@@ -86,7 +102,10 @@ int main( int argc, char** argv )
     v->setEstimate( Eigen::Isometry3d::Identity() ); //估计为单位矩阵
     v->setFixed( true ); //第一个顶点固定，不用优化
     globalOptimizer.addVertex( v );
-    
+    pcl::visualization::CloudViewer viewer("viewer");
+    // 是否显示点云
+    bool visualize = pd.getData("visualize_pointcloud")==string("yes");
+
     keyframes.push_back( currFrame );
     
     double keyframe_threshold = atof( pd.getData("keyframe_threshold").c_str() );
@@ -95,9 +114,12 @@ int main( int argc, char** argv )
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
     {
         cout<<"Reading files "<<currIndex<<endl;
-        FRAME currFrame = readFrame( currIndex,pd ); // 读取currFrame
+        FRAME currFrame = readMyFrame( rgbFilesPath[currIndex],depthFilesPath[currIndex],currIndex,pd ); // 读取currFrame
         computeKeyPointsAndDesp( currFrame, detector, descriptor ); //提取特征
         CHECK_RESULT result = checkKeyframes( keyframes.back(), currFrame, globalOptimizer ); //匹配该帧与keyframes里最后一帧
+        Eigen::Isometry3d T = cvMat2Eigen( currFrame.rvec, currFrame.tvec );
+        cout<<"T="<<T.matrix()<<endl;
+
         switch (result) // 根据匹配结果不同采取不同策略
         {
         case NOT_MATCHED:
@@ -128,7 +150,13 @@ int main( int argc, char** argv )
                 checkRandomLoops( keyframes, currFrame, globalOptimizer );
             }
             keyframes.push_back( currFrame );
-            
+
+
+                cloud = joinPointCloud( cloud, currFrame, T, camera );
+
+                if ( visualize == true )
+                    viewer.showCloud( cloud );
+
             break;
         default:
             break;
@@ -138,10 +166,10 @@ int main( int argc, char** argv )
 
     // 优化
     cout<<RESET"optimizing pose graph, vertices: "<<globalOptimizer.vertices().size()<<endl;
-    globalOptimizer.save("./result_before.g2o");
+    globalOptimizer.save("../result_before.g2o");
     globalOptimizer.initializeOptimization();
     globalOptimizer.optimize( 100 ); //可以指定优化步数
-    globalOptimizer.save( "./result_after.g2o" );
+    globalOptimizer.save( "../result_after.g2o" );
     cout<<"Optimization done."<<endl;
 
     // 拼接点云地图
@@ -224,6 +252,8 @@ CHECK_RESULT checkKeyframes( FRAME& f1, FRAME& f2, g2o::SparseOptimizer& opti, b
     static CAMERA_INTRINSIC_PARAMETERS camera = getDefaultCamera();
     // 比较f1 和 f2
     RESULT_OF_PNP result = estimateMotion( f1, f2, camera );
+    f2.tvec = result.tvec;
+    f2.rvec = result.rvec;
     if ( result.inliers < min_inliers ) //inliers不够，放弃该帧
         return NOT_MATCHED;
     // 计算运动范围是否太大
@@ -323,4 +353,45 @@ void checkRandomLoops( vector<FRAME>& frames, FRAME& currFrame, g2o::SparseOptim
             checkKeyframes( frames[index], currFrame, opti, true );
         }
     }
+}
+
+
+FRAME readMyFrame(string rgb, string depth, int frameId, ParameterReader &pd) {
+    FRAME f;
+    string rgbDir = pd.getData("rgb_dir");
+    string depthDir = pd.getData("depth_dir");
+
+    string rgbExt = pd.getData("rgb_extension");
+    string depthExt = pd.getData("depth_extension");
+
+    f.rgb = cv::imread(rgb);
+    f.depth = cv::imread(depth, -1);
+    f.frameID = frameId;
+    return f;
+}
+
+
+vector<string> listPathFiles(string path) {
+    char namebuf[255] = {0};
+
+    vector<string> ret = {};
+
+    DIR *dirp = NULL;
+    struct dirent *dir_entry = NULL;
+    char file_path[100] = {0};
+    if ((dirp = opendir(path.c_str())) == NULL) {
+        printf("Opendir %s fail!\n", file_path);
+        return ret;
+    }
+    while ((dir_entry = readdir(dirp)) != NULL) {
+        if (strcmp(dir_entry->d_name, ".") == 0 || strcmp(dir_entry->d_name, "..") == 0) {
+            continue;
+        }
+        sprintf(namebuf, "%s%s", path.c_str(), dir_entry->d_name);
+        stringstream ss;
+        ss << namebuf;
+        ret.push_back(ss.str());
+    }
+    std::sort(ret.begin(), ret.end());
+    return ret;
 }

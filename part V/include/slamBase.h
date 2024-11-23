@@ -75,13 +75,13 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
 Eigen::Isometry3d cvMat2Eigen( cv::Mat& rvec, cv::Mat& tvec );
 
 // joinPointCloud 
-PointCloud::Ptr joinPointCloud( PointCloud::Ptr original, FRAME& newFrame, Eigen::Isometry3d T, CAMERA_INTRINSIC_PARAMETERS& camera ) ;
+PointCloud::Ptr joinPointCloud( PointCloud::Ptr & original, FRAME& newFrame, Eigen::Isometry3d T, CAMERA_INTRINSIC_PARAMETERS& camera ) ;
 
 // 参数读取类
 class ParameterReader
 {
 public:
-    ParameterReader( string filename="./parameters.txt" )
+    ParameterReader( string filename="../parameters.txt" )
     {
         ifstream fin( filename.c_str() );
         if (!fin)

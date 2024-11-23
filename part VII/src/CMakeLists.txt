@@ -6,7 +6,30 @@ FIND_PACKAGE( PCL REQUIRED COMPONENTS common io visualization filters )
 list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4") # use this in Ubuntu 16.04
 
 # 增加opencv的依赖
-FIND_PACKAGE( OpenCV REQUIRED )
+set(CMAKE_PREFIX_PATH "/home/hplegend/hplegend/opencv_3_2_0/build/installed")
+# 增加opencv的依赖
+FIND_PACKAGE( OpenCV 3 REQUIRED )
+INCLUDE_DIRECTORIES( ${OpenCV_INCLUDE_DIRS} )
+
+SET( G2O_ROOT ${PROJECT_SOURCE_DIR}/Thirdparty/g2o)
+SET( G2O_INCLUDE_DIR /${PROJECT_SOURCE_DIR}/Thirdparty/g2o)
+
+include_directories(${PROJECT_SOURCE_DIR}/Thirdparty/g2o)
+set(g2o_libs
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_stuff.so
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_core.so
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_solver_cholmod.so
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_solver_dense.so
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_solver_csparse.so
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_csparse_extension.so
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_types_sba.so
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_solver_eigen.so
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_types_slam3d.so
+        ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o_types_sim3.so
+        ${CSPARSE_LIBRARY}
+        ${CHOLMOD_LIBRARY}
+)
+
 
 # 添加头文件和库文件
 ADD_DEFINITIONS( ${PCL_DEFINITIONS} )
@@ -54,11 +77,11 @@ TARGET_LINK_LIBRARIES( slamEnd
     slambase
     ${OpenCV_LIBS}
     ${PCL_LIBRARIES}
-    g2o_core g2o_types_slam3d g2o_solver_csparse g2o_stuff g2o_csparse_extension ${CSPARSE_LIBRARY})
+        ${g2o_libs})
 
 ADD_EXECUTABLE( slam slam.cpp )
 TARGET_LINK_LIBRARIES( slam
     slambase
     ${OpenCV_LIBS}
     ${PCL_LIBRARIES}
-    g2o_core g2o_types_slam3d g2o_solver_csparse g2o_stuff g2o_csparse_extension ${CSPARSE_LIBRARY})
+    ${g2o_libs})

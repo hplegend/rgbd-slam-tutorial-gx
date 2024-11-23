@@ -18,11 +18,11 @@ camera.scale=1000.0;
 # 数据相关
 # 起始与终止索引
 start_index=1
-end_index=780
+end_index=1100
 # 数据所在目录
-rgb_dir=/home/xiang/dataset/rgbd-slam-tutorial/rgb_png/
+rgb_dir=/home/hplegend/Downloads/CL8R24100G7/rgb/
 rgb_extension=.png
-depth_dir=/home/xiang/dataset/rgbd-slam-tutorial/depth_png/
+depth_dir=/home/hplegend/Downloads/CL8R24100G7/depth/
 depth_extension=.png
 # 点云分辨率
 voxel_grid=0.01
@@ -36,7 +36,7 @@ min_inliers=5
 max_norm=0.2
 
 # part 7
-keyframe_threshold=0.1
+keyframe_threshold=0.01
 max_norm_lp=2.0
 # Loop closure
 check_loop_closure=yes

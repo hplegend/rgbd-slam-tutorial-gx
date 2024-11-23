@@ -14,14 +14,16 @@ using namespace std;
 #include <opencv2/features2d/features2d.hpp>
 // #include <opencv2/nonfree/nonfree.hpp> // use this if you want to use SIFT or SURF
 #include <opencv2/calib3d/calib3d.hpp>
+#include <opencv2/xfeatures2d.hpp>
+#include <opencv2/xfeatures2d/nonfree.hpp>
 
 int main( int argc, char** argv )
 {
     // 声明并从data文件夹里读取两个rgb与深度图
-    cv::Mat rgb1 = cv::imread( "./data/rgb1.png");
-    cv::Mat rgb2 = cv::imread( "./data/rgb2.png");
-    cv::Mat depth1 = cv::imread( "./data/depth1.png", -1);
-    cv::Mat depth2 = cv::imread( "./data/depth2.png", -1);
+    cv::Mat rgb1 = cv::imread( "../data/rgb1.png");
+    cv::Mat rgb2 = cv::imread( "../data/rgb2.png");
+    cv::Mat depth1 = cv::imread( "../data/depth1.png", -1);
+    cv::Mat depth2 = cv::imread( "../data/depth2.png", -1);
 
     // 声明特征提取器与描述子提取器
     cv::Ptr<cv::FeatureDetector> detector;
@@ -34,8 +36,8 @@ int main( int argc, char** argv )
     // _detector = cv::FeatureDetector::create( "SIFT" );
     // _descriptor = cv::DescriptorExtractor::create( "SIFT" );
     
-    detector = cv::FeatureDetector::create("ORB");
-    descriptor = cv::DescriptorExtractor::create("ORB");
+    detector = cv::xfeatures2d::SIFT::create();
+    descriptor =  cv::xfeatures2d::SIFT::create();
 
     vector< cv::KeyPoint > kp1, kp2; //关键点
     detector->detect( rgb1, kp1 );  //提取关键点
@@ -89,7 +91,7 @@ int main( int argc, char** argv )
     cout<<"good matches="<<goodMatches.size()<<endl;
     cv::drawMatches( rgb1, kp1, rgb2, kp2, goodMatches, imgMatches );
     cv::imshow( "good matches", imgMatches );
-    cv::imwrite( "./data/good_matches.png", imgMatches );
+    cv::imwrite( "../data/good_matches.png", imgMatches );
     cv::waitKey(0);
 
     // 计算图像间的运动关系
@@ -135,7 +137,9 @@ int main( int argc, char** argv )
     cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
     cv::Mat rvec, tvec, inliers;
     // 求解pnp
-    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 100, inliers );
+    cout<<pts_img.size()<<endl;
+    cout<<pts_obj.size()<<endl;
+    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
 
     cout<<"inliers: "<<inliers.rows<<endl;
     cout<<"R="<<rvec<<endl;
@@ -149,7 +153,7 @@ int main( int argc, char** argv )
     }
     cv::drawMatches( rgb1, kp1, rgb2, kp2, matchesShow, imgMatches );
     cv::imshow( "inlier matches", imgMatches );
-    cv::imwrite( "./data/inliers.png", imgMatches );
+    cv::imwrite( "../data/inliers.png", imgMatches );
     cv::waitKey( 0 );
 
     return 0;

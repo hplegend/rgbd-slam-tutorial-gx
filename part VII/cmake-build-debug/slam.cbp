@@ -1,0 +1,1953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="slam"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\..\usr\local\share\pcl-1.8\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\;CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Sql\;CMake Files\..\..\..\opencv_3_2_0\;CMake Files\..\..\..\opencv_3_2_0\build\;CMake Files\..\..\..\opencv_3_2_0\build\installed\;CMake Files\..\..\..\opencv_3_2_0\build\installed\share\;CMake Files\..\..\..\opencv_3_2_0\build\installed\share\OpenCV\;CMake Files\cmake_modules\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="visualOdometry">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/visualOdometry" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 visualOdometry"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="visualOdometry/fast">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/visualOdometry" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 visualOdometry/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="joinPointCloud">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/joinPointCloud" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 joinPointCloud"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="joinPointCloud/fast">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/joinPointCloud" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 joinPointCloud/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="slambase">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/lib/libslambase.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 slambase"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="slambase/fast">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/lib/libslambase.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 slambase/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="detectFeatures">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/detectFeatures" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 detectFeatures"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="detectFeatures/fast">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/detectFeatures" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 detectFeatures/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="slam">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/slam" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 slam"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="slam/fast">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/slam" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 slam/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="slamEnd">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/slamEnd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 slamEnd"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="slamEnd/fast">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/slamEnd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 slamEnd/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="generate_pointcloud">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/generate_pointcloud" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 generate_pointcloud"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="generate_pointcloud/fast">
+				<Option output="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin/generate_pointcloud" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DCOMPILEDWITHC11"/>
+					<Add option="-DDISABLE_ENSENSO"/>
+					<Add option="-DDISABLE_DAVIDSDK"/>
+					<Add option="-DDISABLE_DSSDK"/>
+					<Add option="-DDISABLE_PCAP"/>
+					<Add option="-DDISABLE_PNG"/>
+					<Add option="-DvtkDomainsChemistry_AUTOINIT=1(vtkDomainsChemistryOpenGL2)"/>
+					<Add option="-DvtkFiltersCore_AUTOINIT=1(vtkFiltersParallelDIY2)"/>
+					<Add option="-DvtkFiltersFlowPaths_AUTOINIT=1(vtkFiltersParallelFlowPaths)"/>
+					<Add option="-DvtkIOExodus_AUTOINIT=1(vtkIOParallelExodus)"/>
+					<Add option="-DvtkIOGeometry_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOImage_AUTOINIT=1(vtkIOMPIImage)"/>
+					<Add option="-DvtkIOParallel_AUTOINIT=1(vtkIOMPIParallel)"/>
+					<Add option="-DvtkIOSQL_AUTOINIT=2(vtkIOMySQL,vtkIOPostgreSQL)"/>
+					<Add option="-DvtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"/>
+					<Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"/>
+					<Add option="-DvtkRenderingFreeType_AUTOINIT=2(vtkRenderingFreeTypeFontConfig,vtkRenderingMatplotlib)"/>
+					<Add option="-DvtkRenderingLICOpenGL2_AUTOINIT=1(vtkRenderingParallelLIC)"/>
+					<Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)"/>
+					<Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)"/>
+					<Add option="-DDISABLE_LIBUSB_1_0"/>
+					<Add option="-DDISABLE_RSSDK"/>
+					<Add option="-DEIGEN_USE_NEW_STDVECTOR"/>
+					<Add option="-DEIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"/>
+					<Add option="-DFLANN_STATIC"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/include"/>
+					<Add directory="/usr/include/vtk-7.1"/>
+					<Add directory="/usr/include/freetype2"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/openmpi/include"/>
+					<Add directory="/usr/include/python3.8"/>
+					<Add directory="/usr/include/hdf5/openmpi"/>
+					<Add directory="/usr/include/jsoncpp"/>
+					<Add directory="/usr/include/libxml2"/>
+					<Add directory="/usr/include/tcl"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include"/>
+					<Add directory="/home/hplegend/hplegend/opencv_3_2_0/build/installed/include/opencv"/>
+					<Add directory="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/local/include/pcl-1.8"/>
+					<Add directory="/usr/local/include/eigen3"/>
+					<Add directory="/usr/include/ni"/>
+					<Add directory="/usr/include/openni2"/>
+					<Add directory="//home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/Thirdparty/g2o"/>
+					<Add directory="/usr/include/suitesparse"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtWidgets"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtGui"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/qt5/QtCore"/>
+					<Add directory="/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"/>
+					<Add directory="/home/hplegend/hplegend/opencv_4_2_0/build/installed/include/opencv4"/>
+					<Add directory="."/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 generate_pointcloud/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part\ VII/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/detectFeatures.cpp">
+			<Option target="detectFeatures"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/generatePointCloud.cpp">
+			<Option target="generate_pointcloud"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/joinPointCloud.cpp">
+			<Option target="joinPointCloud"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/main.cpp">
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/slam.cpp">
+			<Option target="slam"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/slamBase.cpp">
+			<Option target="slambase"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/slamEnd.cpp">
+			<Option target="slamEnd"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/visualOdometry.cpp">
+			<Option target="visualOdometry"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/local/share/pcl-1.8/PCLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\pcl-1.8\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/local/share/pcl-1.8/PCLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\pcl-1.8\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/VTKConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/VTKConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/VTKTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/VTKTargets-none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/vtkModuleAPI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/UseVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/VTKConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/VTKConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/vtkModuleAPI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/UseVTK.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkChartsCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkCommonColor.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkCommonCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkkwiml.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtksys.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkCommonDataModel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkCommonMath.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkCommonMisc.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkCommonSystem.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkCommonTransforms.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkCommonExecutionModel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersGeneral.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkCommonComputationalGeometry.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkInfovisCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersExtraction.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingFourier.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkalglib.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingContext2D.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersGeometry.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersSources.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingFreeType.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkfreetype.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkzlib.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkDICOMParser.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkDomainsChemistry.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOLegacy.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOXMLParser.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkexpat.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkDomainsChemistryOpenGL2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingOpenGL2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOImage.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkMetaIO.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkjpeg.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkpng.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtktiff.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkUtilitiesEncodeString.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkglew.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersAMR.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOXML.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkParallelCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkUtilitiesHashSource.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersFlowPaths.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersGeneric.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersHybrid.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingSources.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersHyperTree.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersImaging.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingGeneral.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersModeling.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersParallel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersParallelDIY2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkParallelMPI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkdiy2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersParallelFlowPaths.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersParallelGeometry.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersParallelImaging.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersParallelMPI.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersParallelStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersPoints.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersProgrammable.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersPython.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkPython.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkWrappingPythonCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkWrappingTools.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersReebGraph.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersSMP.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersSelection.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersTexture.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkFiltersVerdict.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkverdict.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkGUISupportQt.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkInteractionStyle.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkGUISupportQtSQL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOSQL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtksqlite.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkGeovisCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkInfovisLayout.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingHybrid.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkInteractionWidgets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingColor.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingAnnotation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingVolume.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkViewsCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtklibproj4.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOAMR.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkhdf5.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOEnSight.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOExodus.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkexodusII.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtknetcdf.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOExport.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingGL2PSOpenGL2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkgl2ps.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOFFMPEG.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOMovie.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkoggtheora.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOGDAL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOGeoJSON.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkjsoncpp.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOGeometry.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOImport.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOInfovis.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtklibxml2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOLSDyna.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOMINC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOMPIImage.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOMPIParallel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOParallel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIONetCDF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOMySQL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOODBC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOPLY.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOParallelExodus.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOParallelLSDyna.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOParallelNetCDF.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOParallelXML.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOPostgreSQL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOTecplotTable.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOVPIC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkVPIC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOVideo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkIOXdmf2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkxdmf2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingMath.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingMorphological.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingStatistics.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkImagingStencil.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkInfovisBoost.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkInfovisBoostGraphAlgorithms.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkInteractionImage.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkLocalExample.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkParallelMPI4Py.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkParseOGLExt.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkPythonInterpreter.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingContextOpenGL2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingExternal.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingFreeTypeFontConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingImage.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingLICOpenGL2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingLOD.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingLabel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingMatplotlib.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingParallel.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingParallelLIC.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingSceneGraph.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingTk.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkTclTk.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingVolumeAMR.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkRenderingVolumeOpenGL2.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkTestingCore.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkTestingGenericBridge.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkTestingIOSQL.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkTestingRendering.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkViewsContext2D.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkViewsGeovis.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkViewsInfovis.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkWrappingJava.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/cmake/vtk-7.1/Modules/vtkWrappingTcl.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\vtk-7.1\Modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QComposePlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSEmulatorIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsEglDeviceIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSKmsGbmIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEglFSX11IntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevMousePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTabletPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QEvdevTouchScreenPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QIbusPlatformInputContextPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLibInputPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QLinuxFbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QVncIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbEglIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbGlxIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Sql\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Qt5Sql\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../opencv_3_2_0/build/installed/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\opencv_3_2_0\build\installed\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../opencv_3_2_0/build/installed/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\opencv_3_2_0\build\installed\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../opencv_3_2_0/build/installed/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\opencv_3_2_0\build\installed\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/../../../opencv_3_2_0/build/installed/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\opencv_3_2_0\build\installed\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/cmake_modules/FindG2O.cmake">
+			<Option virtualFolder="CMake Files\cmake_modules\"/>
+		</Unit>
+		<Unit filename="/home/hplegend/hplegend/code/rgbd-slam-tutorial-gx/part VII/cmake_modules/FindCSparse.cmake">
+			<Option virtualFolder="CMake Files\cmake_modules\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

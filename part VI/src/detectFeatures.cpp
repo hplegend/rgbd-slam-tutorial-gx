@@ -8,6 +8,10 @@
 
 #include<iostream>
 #include "slamBase.h"
+#include <opencv2/features2d/features2d.hpp>
+// #include <opencv2/nonfree/nonfree.hpp> // use this if you want to use SIFT or SURF
+#include <opencv2/calib3d/calib3d.hpp>
+#include <opencv2/xfeatures2d/nonfree.hpp>
 using namespace std;
 
 // OpenCV 特征检测模块
@@ -28,8 +32,8 @@ int main( int argc, char** argv )
 
     // 构建提取器，默认两者都为sift
     // 构建sift, surf之前要初始化nonfree模块
-    _detector = cv::FeatureDetector::create( "ORB" );
-    _descriptor = cv::DescriptorExtractor::create( "ORB" );
+    _detector = cv::xfeatures2d::SIFT::create();
+    _descriptor = cv::xfeatures2d::SIFT::create();
 
     vector< cv::KeyPoint > kp1, kp2; //关键点
     _detector->detect( rgb1, kp1 );  //提取关键点

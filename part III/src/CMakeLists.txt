@@ -5,9 +5,9 @@ ADD_EXECUTABLE( main main.cpp )
 FIND_PACKAGE( PCL REQUIRED COMPONENTS common io )
 
 list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4") # use this in Ubuntu 16.04
-
+set(CMAKE_PREFIX_PATH "/home/hplegend/hplegend/opencv_3_2_0/build/installed")
 # 增加opencv的依赖
-FIND_PACKAGE( OpenCV 2.4 REQUIRED )
+FIND_PACKAGE( OpenCV 3 REQUIRED )
 INCLUDE_DIRECTORIES( ${OpenCV_INCLUDE_DIRS} )
 
 # 添加头文件和库文件

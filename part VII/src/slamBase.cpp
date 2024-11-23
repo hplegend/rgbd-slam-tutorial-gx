@@ -7,7 +7,9 @@
  ************************************************************************/
 
 #include "slamBase.h"
-
+// #include <opencv2/nonfree/nonfree.hpp> // use this if you want to use SIFT or SURF
+#include <opencv2/calib3d/calib3d.hpp>
+#include <opencv2/xfeatures2d/nonfree.hpp>
 PointCloud::Ptr image2PointCloud( cv::Mat& rgb, cv::Mat& depth, CAMERA_INTRINSIC_PARAMETERS& camera )
 {
     PointCloud::Ptr cloud ( new PointCloud );
@@ -40,7 +42,7 @@ PointCloud::Ptr image2PointCloud( cv::Mat& rgb, cv::Mat& depth, CAMERA_INTRINSIC
     // 设置并保存点云
     cloud->height = 1;
     cloud->width = cloud->points.size();
-    cloud->is_dense = false;
+    cloud->is_dense = true;
 
     return cloud;
 }
@@ -60,8 +62,8 @@ void computeKeyPointsAndDesp( FRAME& frame, string detector, string descriptor )
     cv::Ptr<cv::FeatureDetector> _detector;
     cv::Ptr<cv::DescriptorExtractor> _descriptor;
 
-    _detector = cv::FeatureDetector::create( detector.c_str() );
-    _descriptor = cv::DescriptorExtractor::create( descriptor.c_str() );
+    _detector = cv::ORB::create();
+    _descriptor = cv::ORB::create();
 
     if (!_detector || !_descriptor)
     {
@@ -148,7 +150,7 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
     cv::Mat cameraMatrix( 3, 3, CV_64F, camera_matrix_data );
     cv::Mat rvec, tvec, inliers;
     // 求解pnp
-    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 100, inliers );
+    cv::solvePnPRansac( pts_obj, pts_img, cameraMatrix, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
 
     result.rvec = rvec;
     result.tvec = tvec;
@@ -195,9 +197,9 @@ PointCloud::Ptr joinPointCloud( PointCloud::Ptr original, FRAME& newFrame, Eigen
     static pcl::VoxelGrid<PointT> voxel;
     static ParameterReader pd;
     double gridsize = atof( pd.getData("voxel_grid").c_str() );
-    voxel.setLeafSize( gridsize, gridsize, gridsize );
-    voxel.setInputCloud( newCloud );
-    PointCloud::Ptr tmp( new PointCloud() );
-    voxel.filter( *tmp );
-    return tmp;
+//    voxel.setLeafSize( gridsize, gridsize, gridsize );
+//    voxel.setInputCloud( newCloud );
+//    PointCloud::Ptr tmp( new PointCloud() );
+//    voxel.filter( *tmp );
+    return newCloud;
 }

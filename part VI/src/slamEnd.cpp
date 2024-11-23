@@ -12,16 +12,16 @@
 using namespace std;
 
 #include "slamBase.h"
-#include <g2o/types/slam3d/types_slam3d.h>
-#include <g2o/core/sparse_optimizer.h>
-#include <g2o/core/block_solver.h>
-#include <g2o/core/factory.h>
-#include <g2o/core/optimization_algorithm_factory.h>
-#include <g2o/core/optimization_algorithm_gauss_newton.h>
-#include <g2o/core/robust_kernel.h>
-#include <g2o/core/robust_kernel_factory.h>
-#include <g2o/core/optimization_algorithm_levenberg.h>
-#include <g2o/solvers/eigen/linear_solver_eigen.h>
+#include "g2o/types/slam3d/types_slam3d.h"
+#include "g2o/core/sparse_optimizer.h"
+#include "g2o/core/block_solver.h"
+#include "g2o/core/factory.h"
+#include "g2o/core/optimization_algorithm_factory.h"
+#include "g2o/core/optimization_algorithm_gauss_newton.h"
+#include "g2o/core/robust_kernel.h"
+#include "g2o/core/robust_kernel_factory.h"
+#include "g2o/core/optimization_algorithm_levenberg.h"
+#include "g2o/solvers/eigen/linear_solver_eigen.h"
 
 
 // 给定index，读取一帧数据
@@ -139,10 +139,10 @@ int main( int argc, char** argv )
 
     // 优化所有边
     cout<<"optimizing pose graph, vertices: "<<globalOptimizer.vertices().size()<<endl;
-    globalOptimizer.save("./data/result_before.g2o");
+    globalOptimizer.save("../data/result_before.g2o");
     globalOptimizer.initializeOptimization();
     globalOptimizer.optimize( 100 ); //可以指定优化步数
-    globalOptimizer.save( "./data/result_after.g2o" );
+    globalOptimizer.save( "../data/result_after.g2o" );
     cout<<"Optimization done."<<endl;
 
     globalOptimizer.clear();

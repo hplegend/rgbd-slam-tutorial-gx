@@ -14,7 +14,9 @@ using namespace std;
 #include <opencv2/features2d/features2d.hpp>
 // #include <opencv2/nonfree/nonfree.hpp> // use this if you want to use SIFT or SURF
 #include <opencv2/calib3d/calib3d.hpp>
-
+// #include <opencv2/nonfree/nonfree.hpp> // use this if you want to use SIFT or SURF
+#include <opencv2/calib3d/calib3d.hpp>
+#include <opencv2/xfeatures2d/nonfree.hpp>
 int main( int argc, char** argv )
 {
     // 声明并从data文件夹里读取两个rgb与深度图
@@ -33,9 +35,10 @@ int main( int argc, char** argv )
     // cv::initModule_nonfree();
     // _detector = cv::FeatureDetector::create( "SIFT" );
     // _descriptor = cv::DescriptorExtractor::create( "SIFT" );
-    
-    detector = cv::FeatureDetector::create("ORB");
-    descriptor = cv::DescriptorExtractor::create("ORB");
+
+    // 构建sift, surf之前要初始化nonfree模块
+    detector = cv::xfeatures2d::SIFT::create();
+    descriptor = cv::xfeatures2d::SIFT::create();
 
     vector< cv::KeyPoint > kp1, kp2; //关键点
     detector->detect( rgb1, kp1 );  //提取关键点
