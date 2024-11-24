@@ -17,8 +17,8 @@ camera.scale=1000.0;
 # part 5
 # 数据相关
 # 起始与终止索引
-start_index=42
-end_index=200
+start_index=1
+end_index=1200
 # 数据所在目录
 rgb_dir=/home/hplegend/Downloads/CL8R241002P/rgb/
 rgb_extension=.png

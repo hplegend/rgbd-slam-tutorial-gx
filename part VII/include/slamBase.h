@@ -51,6 +51,8 @@ struct FRAME
     vector<cv::KeyPoint> kp; //关键点
 
     cv::Mat rvec, tvec; // 当前计算的旋转平移
+
+    bool isMotionCal = false; // 标记帧是不是运行估计得到的数据
 };
 
 // PnP 结果

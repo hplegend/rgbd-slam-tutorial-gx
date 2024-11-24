@@ -46,6 +46,8 @@ vector<string> listPathFiles(string path);
 FRAME readFrame( int index, ParameterReader& pd );
 
 FRAME readMyFrame(string rgb, string depth, int frameId, ParameterReader &pd) ;
+
+Eigen::Vector3d calMotionDirection(vector<FRAME> keyFrames, g2o::SparseOptimizer& globalOptimizer);
 void drawCamera(pcl::visualization::PCLVisualizer::Ptr viewer, const  Eigen::Matrix4d& pose, int id);
 // 估计一个运动的大小
 double normofTransform( cv::Mat rvec, cv::Mat tvec );
@@ -112,78 +114,133 @@ int main( int argc, char** argv )
     currFrame.tvec = cv::Mat::zeros(1, 3, CV_64F);
     keyframes.push_back( currFrame );
 
-
     double keyframe_threshold = atof( pd.getData("keyframe_threshold").c_str() );
     bool check_loop_closure = pd.getData("check_loop_closure")==string("yes");
     int lostFrameCnt = 0;
     for ( currIndex=startIndex+1; currIndex<endIndex; currIndex++ )
     {
-        cout<<"Reading files "<<currIndex<<endl;
+        cout << "Reading files " << currIndex << endl;
+        if (keyframes.size() >= 0) {
+            if (keyframes[keyframes.size() - 1].isMotionCal) {
+                FRAME currFrame = readMyFrame( rgbFilesPath[currIndex],depthFilesPath[currIndex],currIndex,pd ); // 读取currFrame
+                computeKeyPointsAndDesp( currFrame, detector, descriptor ); //提取特征
+
+                // 加入优化器
+                g2o::VertexSE3* vTmp = new g2o::VertexSE3();
+                vTmp->setId( currFrame.frameID );
+                vTmp->setFixed(true);
+                vTmp->setEstimate( Eigen::Isometry3d::Identity() ); //估计为单位矩阵
+                globalOptimizer.addVertex(vTmp );
+
+                // 边部分
+                g2o::EdgeSE3* edge = new g2o::EdgeSE3();
+                // 连接此边的两个顶点id
+                edge->setVertex( 0, globalOptimizer.vertex(keyframes[keyframes.size()-1].frameID ));
+                edge->setVertex( 1, globalOptimizer.vertex(currFrame.frameID  ));
+                edge->setRobustKernel( new g2o::RobustKernelHuber() );
+                // 信息矩阵
+                Eigen::Matrix<double, 6, 6> information = Eigen::Matrix< double, 6,6 >::Identity();
+                // 信息矩阵是协方差矩阵的逆，表示我们对边的精度的预先估计
+                // 因为pose为6D的，信息矩阵是6*6的阵，假设位置和角度的估计精度均为0.1且互相独立
+                // 那么协方差则为对角为0.01的矩阵，信息阵则为100的矩阵
+                information(0,0) = information(1,1) = information(2,2) = 100;
+                information(3,3) = information(4,4) = information(5,5) = 100;
+                // 也可以将角度设大一些，表示对角度的估计更加准确
+                edge->setInformation( information );
+                // 边的估计即是pnp求解之结果
+                Eigen::Isometry3d T = cvMat2Eigen(keyframes[keyframes.size()-1].rvec,keyframes[keyframes.size()-1].tvec);
+                // edge->setMeasurement( T );
+                edge->setMeasurement( T.inverse() );
+                // 将此边加入图中
+                globalOptimizer.addEdge(edge);
+
+                currFrame.tvec = keyframes[keyframes.size()-1].tvec;
+                currFrame.rvec = keyframes[keyframes.size()-1].rvec;
+                keyframes.push_back( currFrame );
+
+                continue;
+            }
+        }
+
         FRAME currFrame = readMyFrame( rgbFilesPath[currIndex],depthFilesPath[currIndex],currIndex,pd ); // 读取currFrame
         computeKeyPointsAndDesp( currFrame, detector, descriptor ); //提取特征
         CHECK_RESULT result = checkKeyframes( keyframes.back(), currFrame, globalOptimizer ); //匹配该帧与keyframes里最后一帧
-        Eigen::Isometry3d T = cvMat2Eigen( currFrame.rvec, currFrame.tvec );
-        cout<<"T="<<T.matrix()<<endl;
+//        Eigen::Isometry3d T = cvMat2Eigen( currFrame.rvec, currFrame.tvec );
+//        cout<<"T="<<T.matrix()<<endl;
 
         switch (result) // 根据匹配结果不同采取不同策略
         {
         case NOT_MATCHED:
             //没匹配上，直接跳过
-            cout<<RED"Not enough inliers."<<endl;
+            cout<<RED"Not enough inliers."<< currFrame.frameID << endl;
             lostFrameCnt = lostFrameCnt + 1;
-//            if(lostFrameCnt >=1) {// 连续两帧没有跟上
-//                // 计算方向向量，计算速度，插入一帧，或者从新开始一帧
-//                // 目的是保证地图不断。
-//                pcl::visualization::PCLVisualizer::Ptr camViewer(new pcl::visualization::PCLVisualizer("SLAM Camera Visualization"));
-//                camViewer->setBackgroundColor(0, 0, 0);
-//                camViewer->addCoordinateSystem(1.0); // 参数为坐标轴长度
-//
-//                camViewer->removeAllPointClouds();
-//                camViewer->removeAllShapes();
-//
-//                Eigen::Matrix4d matrix4D = Eigen::Matrix4d::Identity();
-//                pcl::PointXYZ last_O_pos;
-//                for (size_t i = 0; i < keyframes.size(); ++i) {
-//                    pcl::PointXYZ O_pose;
-//                    Eigen::Isometry3d T = cvMat2Eigen( keyframes[i].rvec, keyframes[i].tvec );
-//                    //每帧位姿的原点坐标只由变换矩阵中的平移向量得到
-//                    O_pose.x = T.translation()[0];
-//                    O_pose.y = T.translation()[1];
-//                    O_pose.z = T.translation()[2];
-//                    if (i > 0)
-//                        camViewer->addLine(last_O_pos, O_pose, 255, 255, 255, "trac_" + std::to_string(i));
-//
-//                    pcl::PointXYZ X;
-//                    Eigen::Vector3d Xw =T * (0.1 * Eigen::Vector3d(1, 0, 0));
-//                    X.x = Xw[0];
-//                    X.y = Xw[1];
-//                    X.z = Xw[2];
-//                    camViewer->addLine(O_pose, X, 255, 0, 0, "X_" + std::to_string(i));
-//
-//                    pcl::PointXYZ Y;
-//                    Eigen::Vector3d Yw =T * (0.1 * Eigen::Vector3d(0, 1, 0));
-//                    Y.x = Yw[0];
-//                    Y.y = Yw[1];
-//                    Y.z = Yw[2];
-//                    camViewer->addLine(O_pose, Y, 0, 255, 0, "Y_" + std::to_string(i));
-//
-//                    pcl::PointXYZ Z;
-//                    Eigen::Vector3d Zw =T * (0.1 * Eigen::Vector3d(0, 0, 1));
-//                    Z.x = Zw[0];
-//                    Z.y = Zw[1];
-//                    Z.z = Zw[2];
-//                    camViewer->addLine(O_pose, Z, 0, 0, 255, "Z_" + std::to_string(i));
-//
-//                    last_O_pos = O_pose;
-//
-//                //    drawCamera(camViewer, matrix4D, i); // 绘制相机
-//                }
-//
-//                while (!camViewer->wasStopped()) {
-//                    camViewer->spinOnce(100);
-//                }
-//
-//            }
+            if(lostFrameCnt >=2) {// 连续两帧没有跟上
+                // 计算方向向量，计算速度，插入一帧，或者从新开始一帧
+                // 目的是保证地图不断。
+                globalOptimizer.initializeOptimization();
+                globalOptimizer.optimize( 100 ); //可以指定优化步数
+                Eigen::Vector3d   velocity =   calMotionDirection(keyframes, globalOptimizer);
+                // 开始插入运动帧
+                g2o::VertexSE3* vertex = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[keyframes.size()-1].frameID ));
+                Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
+                pose.translation()[0] =  velocity[0];
+                pose.translation()[1] =  velocity[1];
+                pose.translation()[2] =  velocity[2];
+
+                Eigen::Vector3d translation = pose.translation();
+                Eigen::Matrix3d rotation = pose.rotation();
+                // 转换为 cv::Mat
+                cv::Mat translationMat(3, 1, CV_64F); // OpenCV 矩阵 (3x1)
+                for (int i = 0; i < 3; ++i) {
+                    translationMat.at<double>(i, 0) = translation(i); // 将 Eigen 数据拷贝到 cv::Mat
+                }
+
+                cv::Mat rotationMat(3, 3, CV_64F); // OpenCV 3x3 矩阵，类型为 double
+                for (int i = 0; i < 3; ++i) {
+                    for (int j = 0; j < 3; ++j) {
+                        rotationMat.at<double>(i, j) = rotation(i, j); // 将 Eigen 数据拷贝到 cv::Mat
+                    }
+                }
+
+
+                // 重新初始化匹配
+                currFrame.isMotionCal= true;
+                currFrame.tvec = translationMat;
+                cv::Mat rotationMatVec;
+                cv::Rodrigues( rotationMat, rotationMatVec );
+                currFrame.rvec = rotationMatVec;
+
+                // 加入优化器
+                g2o::VertexSE3* vTmp = new g2o::VertexSE3();
+                vTmp->setId( currFrame.frameID );
+                vTmp->setEstimate( Eigen::Isometry3d::Identity() ); //估计为单位矩阵
+                vTmp->setFixed( true ); //第一个顶点固定，不用优化
+                globalOptimizer.addVertex( vTmp );
+
+                // 边部分
+                g2o::EdgeSE3* edge = new g2o::EdgeSE3();
+                // 连接此边的两个顶点id
+                edge->setVertex( 0, globalOptimizer.vertex(keyframes[keyframes.size()-1].frameID ));
+                edge->setVertex( 1, globalOptimizer.vertex(currFrame.frameID  ));
+                edge->setRobustKernel( new g2o::RobustKernelHuber() );
+                // 信息矩阵
+                Eigen::Matrix<double, 6, 6> information = Eigen::Matrix< double, 6,6 >::Identity();
+                // 信息矩阵是协方差矩阵的逆，表示我们对边的精度的预先估计
+                // 因为pose为6D的，信息矩阵是6*6的阵，假设位置和角度的估计精度均为0.1且互相独立
+                // 那么协方差则为对角为0.01的矩阵，信息阵则为100的矩阵
+                information(0,0) = information(1,1) = information(2,2) = 100;
+                information(3,3) = information(4,4) = information(5,5) = 100;
+                // 也可以将角度设大一些，表示对角度的估计更加准确
+                edge->setInformation( information );
+                // 边的估计即是pnp求解之结果
+                Eigen::Isometry3d T1 = pose;
+                // edge->setMeasurement( T );
+                edge->setMeasurement( T1.inverse() );
+                // 将此边加入图中
+                globalOptimizer.addEdge(edge);
+
+                keyframes.push_back( currFrame );
+            }
 
 
             break;
@@ -276,19 +333,9 @@ int main( int argc, char** argv )
     camViewer->removeAllPointClouds();
     camViewer->removeAllShapes();
 
+    Eigen::Vector3d   velocity =   calMotionDirection(keyframes, globalOptimizer);
 
 
-    g2o::VertexSE3* vertexR2 = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[keyframes.size()-2].frameID ));
-    Eigen::Isometry3d poseR2 = vertexR2->estimate(); //该帧优化后的位姿
-
-    g2o::VertexSE3* vertexR1 = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[keyframes.size()-1].frameID ));
-    Eigen::Isometry3d poseR1 = vertexR1->estimate(); //该帧优化后的位姿
-
-    Eigen::Vector3d dirR2(poseR2.translation()[0], poseR2.translation()[1], poseR2.translation()[2]);
-    Eigen::Vector3d dirR1(poseR1.translation()[0], poseR1.translation()[1], poseR1.translation()[2]);
-    Eigen::Vector3d add = dirR1 + dirR2;
-    double magnitude = add.norm(); // 计算模
-    Eigen::Vector3d velocity = (add / magnitude) * 0.01;
     // 计算一个方向向量，和速度
     // 添加100帧看看效果
     Eigen::Matrix4d matrix4D = Eigen::Matrix4d::Identity();
@@ -338,43 +385,43 @@ int main( int argc, char** argv )
     int secondId = 0;
 
 
-    for (size_t i = 200; i < 400; ++i) {
-        secondId = i;
-        graphId.push_back(secondId );
-        g2o::VertexSE3* vertex = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[keyframes.size()-1].frameID ));
-        Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
-        pose.translation()[0] =  velocity[0];
-        pose.translation()[1] =  velocity[1];
-        pose.translation()[2] =  velocity[2];
-
-            g2o::VertexSE3 *v = new g2o::VertexSE3();
-            v->setId( secondId );
-            v->setEstimate( Eigen::Isometry3d::Identity() );
-        globalOptimizer.addVertex(v);
-
-        // 边部分
-        g2o::EdgeSE3* edge = new g2o::EdgeSE3();
-        // 连接此边的两个顶点id
-        edge->setVertex( 0, globalOptimizer.vertex(firstId ));
-        edge->setVertex( 1, globalOptimizer.vertex(secondId ));
-        edge->setRobustKernel( new g2o::RobustKernelHuber() );
-        // 信息矩阵
-        Eigen::Matrix<double, 6, 6> information = Eigen::Matrix< double, 6,6 >::Identity();
-        // 信息矩阵是协方差矩阵的逆，表示我们对边的精度的预先估计
-        // 因为pose为6D的，信息矩阵是6*6的阵，假设位置和角度的估计精度均为0.1且互相独立
-        // 那么协方差则为对角为0.01的矩阵，信息阵则为100的矩阵
-        information(0,0) = information(1,1) = information(2,2) = 100;
-        information(3,3) = information(4,4) = information(5,5) = 100;
-        // 也可以将角度设大一些，表示对角度的估计更加准确
-        edge->setInformation( information );
-        // 边的估计即是pnp求解之结果
-        Eigen::Isometry3d T = pose;
-        // edge->setMeasurement( T );
-        edge->setMeasurement( T.inverse() );
-        // 将此边加入图中
-        globalOptimizer.addEdge(edge);
-        firstId = secondId;
-    }
+//    for (size_t i = 200; i < 400; ++i) {
+//        secondId = i;
+//        graphId.push_back(secondId );
+//        g2o::VertexSE3* vertex = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[keyframes.size()-1].frameID ));
+//        Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
+//        pose.translation()[0] =  velocity[0];
+//        pose.translation()[1] =  velocity[1];
+//        pose.translation()[2] =  velocity[2];
+//
+//            g2o::VertexSE3 *v = new g2o::VertexSE3();
+//            v->setId( secondId );
+//            v->setEstimate( Eigen::Isometry3d::Identity() );
+//        globalOptimizer.addVertex(v);
+//
+//        // 边部分
+//        g2o::EdgeSE3* edge = new g2o::EdgeSE3();
+//        // 连接此边的两个顶点id
+//        edge->setVertex( 0, globalOptimizer.vertex(firstId ));
+//        edge->setVertex( 1, globalOptimizer.vertex(secondId ));
+//        edge->setRobustKernel( new g2o::RobustKernelHuber() );
+//        // 信息矩阵
+//        Eigen::Matrix<double, 6, 6> information = Eigen::Matrix< double, 6,6 >::Identity();
+//        // 信息矩阵是协方差矩阵的逆，表示我们对边的精度的预先估计
+//        // 因为pose为6D的，信息矩阵是6*6的阵，假设位置和角度的估计精度均为0.1且互相独立
+//        // 那么协方差则为对角为0.01的矩阵，信息阵则为100的矩阵
+//        information(0,0) = information(1,1) = information(2,2) = 100;
+//        information(3,3) = information(4,4) = information(5,5) = 100;
+//        // 也可以将角度设大一些，表示对角度的估计更加准确
+//        edge->setInformation( information );
+//        // 边的估计即是pnp求解之结果
+//        Eigen::Isometry3d T = pose;
+//        // edge->setMeasurement( T );
+//        edge->setMeasurement( T.inverse() );
+//        // 将此边加入图中
+//        globalOptimizer.addEdge(edge);
+//        firstId = secondId;
+//    }
 
 
 //
@@ -472,6 +519,22 @@ FRAME readFrame( int index, ParameterReader& pd )
 double normofTransform( cv::Mat rvec, cv::Mat tvec )
 {
     return fabs(min(cv::norm(rvec), 2*M_PI-cv::norm(rvec)))+ fabs(cv::norm(tvec));
+}
+
+
+Eigen::Vector3d calMotionDirection(vector<FRAME> keyFrames, g2o::SparseOptimizer& globalOptimizer){
+    g2o::VertexSE3* vertexR2 = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyFrames[keyFrames.size()-2].frameID ));
+    Eigen::Isometry3d poseR2 = vertexR2->estimate(); //该帧优化后的位姿
+
+    g2o::VertexSE3* vertexR1 = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyFrames[keyFrames.size()-1].frameID ));
+    Eigen::Isometry3d poseR1 = vertexR1->estimate(); //该帧优化后的位姿
+
+    Eigen::Vector3d dirR2(poseR2.translation()[0], poseR2.translation()[1], poseR2.translation()[2]);
+    Eigen::Vector3d dirR1(poseR1.translation()[0], poseR1.translation()[1], poseR1.translation()[2]);
+    Eigen::Vector3d add = dirR1 + dirR2;
+    double magnitude = add.norm(); // 计算模
+    Eigen::Vector3d velocity = (add / magnitude) * 0.01;
+    return velocity;
 }
 
 CHECK_RESULT checkKeyframes( FRAME& f1, FRAME& f2, g2o::SparseOptimizer& opti, bool is_loops)
