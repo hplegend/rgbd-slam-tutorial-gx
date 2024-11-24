@@ -86,6 +86,20 @@ RESULT_OF_PNP estimateMotion( FRAME& frame1, FRAME& frame2, CAMERA_INTRINSIC_PAR
     vector< cv::DMatch > matches;
     cv::BFMatcher matcher;
     matcher.match( frame1.desp, frame2.desp, matches );
+
+
+    // 可视化：显示匹配的特征
+//    cv::Mat imgMatches;
+//    cv::drawMatches( frame1.rgb, frame1.kp, frame2.rgb, frame2.kp, matches, imgMatches );
+//
+//    cout<<imgMatches.cols<<","<<imgMatches.rows<<endl;
+//    int width = imgMatches.cols * 0.3;
+//    int height = imgMatches.rows * 0.3;
+//    cv::resize(imgMatches, imgMatches, cv::Size(width, height));
+//    cv::imshow( "matches", imgMatches );
+//    cv::imwrite( "../data/matches.png", imgMatches );
+//    cv::waitKey( 0 );
+
    
     RESULT_OF_PNP result;
     vector< cv::DMatch > goodMatches;

@@ -293,7 +293,9 @@ int main( int argc, char** argv )
     // 添加100帧看看效果
     Eigen::Matrix4d matrix4D = Eigen::Matrix4d::Identity();
     pcl::PointXYZ last_O_pos;
+    vector<int> graphId;
     for (size_t i = 0; i < keyframes.size(); ++i) {
+        graphId.push_back(keyframes[i].frameID );
         // 从g2o里取出一帧
         g2o::VertexSE3* vertex = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[i].frameID ));
         Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
@@ -332,9 +334,64 @@ int main( int argc, char** argv )
 
     }
 
-    for (size_t i = 200; i < 400; ++i) {
+    int firstId = keyframes[keyframes.size()-1].frameID;
+    int secondId = 0;
 
+
+    for (size_t i = 200; i < 400; ++i) {
+        secondId = i;
+        graphId.push_back(secondId );
         g2o::VertexSE3* vertex = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( keyframes[keyframes.size()-1].frameID ));
+        Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
+        pose.translation()[0] =  velocity[0];
+        pose.translation()[1] =  velocity[1];
+        pose.translation()[2] =  velocity[2];
+
+            g2o::VertexSE3 *v = new g2o::VertexSE3();
+            v->setId( secondId );
+            v->setEstimate( Eigen::Isometry3d::Identity() );
+        globalOptimizer.addVertex(v);
+
+        // 边部分
+        g2o::EdgeSE3* edge = new g2o::EdgeSE3();
+        // 连接此边的两个顶点id
+        edge->setVertex( 0, globalOptimizer.vertex(firstId ));
+        edge->setVertex( 1, globalOptimizer.vertex(secondId ));
+        edge->setRobustKernel( new g2o::RobustKernelHuber() );
+        // 信息矩阵
+        Eigen::Matrix<double, 6, 6> information = Eigen::Matrix< double, 6,6 >::Identity();
+        // 信息矩阵是协方差矩阵的逆，表示我们对边的精度的预先估计
+        // 因为pose为6D的，信息矩阵是6*6的阵，假设位置和角度的估计精度均为0.1且互相独立
+        // 那么协方差则为对角为0.01的矩阵，信息阵则为100的矩阵
+        information(0,0) = information(1,1) = information(2,2) = 100;
+        information(3,3) = information(4,4) = information(5,5) = 100;
+        // 也可以将角度设大一些，表示对角度的估计更加准确
+        edge->setInformation( information );
+        // 边的估计即是pnp求解之结果
+        Eigen::Isometry3d T = pose;
+        // edge->setMeasurement( T );
+        edge->setMeasurement( T.inverse() );
+        // 将此边加入图中
+        globalOptimizer.addEdge(edge);
+        firstId = secondId;
+    }
+
+
+//
+//    while (!camViewer->wasStopped()) {
+//        camViewer->spinOnce(100);
+//    }
+
+    cout<<RESET"optimizing pose graph, vertices: "<<globalOptimizer.vertices().size()<<endl;
+    globalOptimizer.save("../result_before.g2o");
+    globalOptimizer.initializeOptimization();
+    globalOptimizer.optimize( 100 ); //可以指定优化步数
+    globalOptimizer.save( "../result_after.g2o" );
+    cout<<"Optimization done."<<endl;
+                camViewer->removeAllPointClouds();
+                camViewer->removeAllShapes();
+    for (size_t i = 0; i < graphId.size(); ++i) {
+        g2o::VertexSE3* vertex = dynamic_cast<g2o::VertexSE3*>(globalOptimizer.vertex( graphId[i] ));
         Eigen::Isometry3d pose = vertex->estimate(); //该帧优化后的位姿
         pose.translation()[1] = last_O_pos.y + velocity[1];
 
@@ -344,9 +401,9 @@ int main( int argc, char** argv )
         O_pose.y = pose.translation()[1];
         O_pose.z = pose.translation()[2];
 
-        cout<< "aaa:"<<O_pose.x<<","<<O_pose.y<<","<<O_pose.z<<endl;
-
-        camViewer->addLine(last_O_pos, O_pose, 255, 255, 255, "trac_" + std::to_string(i));
+        if (i > 0) {
+            camViewer->addLine(last_O_pos, O_pose, 255, 255, 255, "trac_" + std::to_string(i));
+        }
 
         pcl::PointXYZ X;
         Eigen::Vector3d Xw = pose * (0.1 * Eigen::Vector3d(1, 0, 0));
@@ -370,14 +427,13 @@ int main( int argc, char** argv )
         camViewer->addLine(O_pose, Z, 0, 0, 255, "Z_" + std::to_string(i));
 
         last_O_pos = O_pose;
-    }
 
+    }
 
 
     while (!camViewer->wasStopped()) {
         camViewer->spinOnce(100);
     }
-
 
 //    voxel.setInputCloud( output );
 //    voxel.filter( *tmp );
